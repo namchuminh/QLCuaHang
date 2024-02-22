@@ -22,6 +22,10 @@ $route['admin/food/(:any)/history'] = 'Admin/Food/History/$1';
 
 
 $route['admin/supplier'] = 'Admin/Supplier';
+$route['admin/supplier/add'] = 'Admin/Supplier/Add';
+$route['admin/supplier/(:any)/update'] = 'Admin/Supplier/Update/$1';
+$route['admin/supplier/(:any)/delete'] = 'Admin/Supplier/Delete/$1';
+$route['admin/supplier/(:any)/history'] = 'Admin/Supplier/History/$1';
 
 
 $route['admin/category'] = 'Admin/Category';
