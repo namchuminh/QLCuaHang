@@ -21,6 +21,7 @@
 		                                <th>Mô Tả</th>
 		                                <th>Trạng Thái</th>
 		                                <th>Ngày Hợp Tác</th>
+		                                <th>Lịch Sử Nhập</th>
 		                                <th>Thao Tác</th>
 		                            </tr>
 		                        </thead>
@@ -50,6 +51,9 @@
 			                                	<span class="badge badge-dark">
 			                                		<?php echo $value['NgayHopTac']; ?>
 			                                	</span>
+			                                </td>
+			                                <td>
+			                                	<a class="btn btn-success w-100" href="<?php echo base_url('admin/supplier/'.$value['MaNhaCungCap'].'/history/') ?>">Xem Lịch Sử</a>
 			                                </td>
 			                                <td>
 			                                	<a class="btn btn-success w-100" href="<?php echo base_url('admin/supplier/'.$value['MaNhaCungCap'].'/update/') ?>">Xem Chi Tiết</a>

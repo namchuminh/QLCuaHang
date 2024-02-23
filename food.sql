@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2024 at 04:32 PM
+-- Generation Time: Feb 23, 2024 at 06:05 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -98,8 +98,8 @@ CREATE TABLE `lichsunhap` (
 --
 
 INSERT INTO `lichsunhap` (`MaLichSuNhap`, `MaNhanVien`, `MaNhaCungCap`, `MaMonAn`, `SoLuongCu`, `SoLuongMoi`, `TongTien`, `ThoiGian`) VALUES
-(1, 1, 1, 3, 10, 5, 50000, '2024-02-22 00:00:00'),
-(2, 1, 1, 3, 15, 5, 50000, '2024-02-22 22:22:32');
+(3, 1, 13, 3, 20, 30, 15000, '2024-02-23 22:48:39'),
+(4, 1, 13, 4, 0, 15, 150000, '2024-02-23 23:03:47');
 
 -- --------------------------------------------------------
 
@@ -110,16 +110,19 @@ INSERT INTO `lichsunhap` (`MaLichSuNhap`, `MaNhanVien`, `MaNhaCungCap`, `MaMonAn
 CREATE TABLE `loaimonan` (
   `MaLoaiMonAn` int(11) NOT NULL,
   `HinhAnh` text NOT NULL,
-  `TenLoaiMonAn` varchar(255) NOT NULL
+  `MoTa` text NOT NULL,
+  `TenLoaiMonAn` varchar(255) NOT NULL,
+  `TrangThai` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `loaimonan`
 --
 
-INSERT INTO `loaimonan` (`MaLoaiMonAn`, `HinhAnh`, `TenLoaiMonAn`) VALUES
-(1, 'https://cdn.tgdd.vn/Files/2020/12/16/1314124/thuc-an-nhanh-la-gi-an-thuc-an-nhanh-co-tot-hay-khong-202012161146206471.jpg', 'Đồ Ăn Nhanh'),
-(2, 'https://imagescdn.pystravel.vn/uploads/posts/avatar/1581920545.jpg', 'Nước Uống');
+INSERT INTO `loaimonan` (`MaLoaiMonAn`, `HinhAnh`, `MoTa`, `TenLoaiMonAn`, `TrangThai`) VALUES
+(1, 'https://cdn.tgdd.vn/Files/2020/12/16/1314124/thuc-an-nhanh-la-gi-an-thuc-an-nhanh-co-tot-hay-khong-202012161146206471.jpg', 'Món ăn uống rượi', 'Đồ Ăn Nhanh', 0),
+(2, 'http://localhost/QLCuaHang/uploads/z4617362745335_4456bfd0f397a69bb165e385ba8916cb.jpg', 'Món ăn uống rượi', 'Nước Uống', 1),
+(3, 'http://localhost/QLCuaHang/uploads/z4617362817818_39cacdb57658e537cb0e22dc18e885d81.jpg', 'Món ăn uống rượi', 'Món Nhậu', 1);
 
 -- --------------------------------------------------------
 
@@ -143,7 +146,9 @@ CREATE TABLE `monan` (
 --
 
 INSERT INTO `monan` (`MaMonAn`, `TenMon`, `MoTa`, `GiaBan`, `SoLuong`, `MaLoaiMonAn`, `HinhAnh`, `TrangThai`) VALUES
-(3, 'Trà Sữa Trân Trâu', '<p>abcde</p>', 15000, 20, 2, 'http://localhost/QLCuaHang/uploads/15819205452.jpg', 1);
+(3, 'Trà Sữa Trân Trâu', '<p>abcde</p>', 15000, 50, 2, 'http://localhost/QLCuaHang/uploads/15819205452.jpg', 1),
+(4, 'Hướng Dương', '<p>abcde</p>', 15000, 15, 2, 'http://localhost/QLCuaHang/uploads/z4617362741623_98c0302df70bfe02dd581fa8a0e35aa6.jpg', 1),
+(5, 'Sting Vàng', '<p>nước uống</p>', 10000, 0, 1, 'http://localhost/QLCuaHang/uploads/z4617362741623_98c0302df70bfe02dd581fa8a0e35aa61.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -156,6 +161,16 @@ CREATE TABLE `ncc_loaimonan` (
   `MaNhaCungCap` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `ncc_loaimonan`
+--
+
+INSERT INTO `ncc_loaimonan` (`MaLoaiMonAn`, `MaNhaCungCap`) VALUES
+(1, 12),
+(1, 13),
+(2, 12),
+(2, 13);
+
 -- --------------------------------------------------------
 
 --
@@ -165,6 +180,7 @@ CREATE TABLE `ncc_loaimonan` (
 CREATE TABLE `nhacungcap` (
   `MaNhaCungCap` int(11) NOT NULL,
   `TenNhaCungCap` text NOT NULL,
+  `HinhAnh` text NOT NULL,
   `MoTa` text NOT NULL,
   `NgayHopTac` datetime NOT NULL DEFAULT current_timestamp(),
   `TrangThai` int(11) NOT NULL DEFAULT 1
@@ -174,8 +190,9 @@ CREATE TABLE `nhacungcap` (
 -- Dumping data for table `nhacungcap`
 --
 
-INSERT INTO `nhacungcap` (`MaNhaCungCap`, `TenNhaCungCap`, `MoTa`, `NgayHopTac`, `TrangThai`) VALUES
-(1, 'Nhà cung cấp Hoa Ban', 'Cung cấp sản phẩm thịt khô, thịt sấy gác bếp', '2024-02-22 00:00:00', 1);
+INSERT INTO `nhacungcap` (`MaNhaCungCap`, `TenNhaCungCap`, `HinhAnh`, `MoTa`, `NgayHopTac`, `TrangThai`) VALUES
+(12, 'Nhà cung cấp Nam Hà', 'http://localhost/QLCuaHang/uploads/158192054514.jpg', 'avcde', '2024-02-23 01:22:26', 1),
+(13, 'Nhà cung cấp Hồng Bảo', 'http://localhost/QLCuaHang/uploads/z4617362817818_39cacdb57658e537cb0e22dc18e885d8.jpg', 'ádfgasdfdsa', '2024-02-23 01:22:43', 1);
 
 -- --------------------------------------------------------
 
@@ -295,25 +312,25 @@ ALTER TABLE `hoadon`
 -- AUTO_INCREMENT for table `lichsunhap`
 --
 ALTER TABLE `lichsunhap`
-  MODIFY `MaLichSuNhap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MaLichSuNhap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `loaimonan`
 --
 ALTER TABLE `loaimonan`
-  MODIFY `MaLoaiMonAn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MaLoaiMonAn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `monan`
 --
 ALTER TABLE `monan`
-  MODIFY `MaMonAn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MaMonAn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `nhacungcap`
 --
 ALTER TABLE `nhacungcap`
-  MODIFY `MaNhaCungCap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MaNhaCungCap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `nhanvien`

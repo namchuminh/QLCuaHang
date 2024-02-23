@@ -144,10 +144,32 @@ class Supplier extends CI_Controller {
 			return redirect(base_url('admin/supplier/'));
 		}
 
+		if(count($this->Model_Supplier->getById($manhacungcap)) <= 0){
+			$this->session->set_flashdata('error', 'Nhà cung cấp không tồn tại trong hệ thống!');
+			return redirect(base_url('admin/supplier/'));
+		}
+
 		$this->Model_Supplier->delete($manhacungcap);
 		$this->session->set_flashdata('success', 'Xóa nhà cung cấp thành công!');
 		return redirect(base_url('admin/supplier/'));
 
+	}
+
+	public function History($manhacungcap){
+		if($this->session->userdata('role') != 1){
+			$this->session->set_flashdata('error', 'Bạn không đủ quyền thực hiện!');
+			return redirect(base_url('admin/supplier/'));
+		}
+
+		if(count($this->Model_Supplier->getById($manhacungcap)) <= 0){
+			$this->session->set_flashdata('error', 'Nhà cung cấp không tồn tại trong hệ thống!');
+			return redirect(base_url('admin/supplier/'));
+		}
+
+		$data['detail'] = $this->Model_Supplier->getById($manhacungcap);
+		$data['history'] = $this->Model_Supplier->getHistory($manhacungcap);
+		$data['title'] = "Lịch sử nhập nhà cung cấp";
+		return $this->load->view('Admin/View_SupplierHistory', $data);
 	}
 
 }

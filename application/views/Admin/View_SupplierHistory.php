@@ -4,7 +4,7 @@
     <div class="col-lg-8 p-r-0 title-margin-right">
         <div class="page-header">
             <div class="page-title">
-                <h1>Lịch Sử Nhập: <?php echo $detail[0]['TenMon']; ?></h1>
+                <h1>Lịch Sử Nhập: <?php echo $detail[0]['TenNhaCungCap']; ?></h1>
             </div>
         </div>
     </div>
@@ -14,9 +14,9 @@
             <div class="page-title">
                 <ol class="breadcrumb text-right">
                     <li><a href="<?php echo base_url('admin/'); ?>">Trang Chủ</a></li>
-                    <li><a href="<?php echo base_url('admin/food/'); ?>">Món Ăn</a></li>
-                    <li><a href="<?php echo base_url('admin/food/'); ?>">Lịch Sử Nhập</a></li>
-                    <li class="active"><?php echo $detail[0]['TenMon']; ?></li>
+                    <li><a href="<?php echo base_url('admin/supplier/'); ?>">Nhà Cung Cấp</a></li>
+                    <li><a href="<?php echo base_url('admin/supplier/'); ?>">Lịch Sử Nhập</a></li>
+                    <li class="active"><?php echo $detail[0]['TenNhaCungCap']; ?></li>
                 </ol>
             </div>
         </div>
@@ -36,7 +36,7 @@
 		                        <thead>
 		                            <tr>
 		                                <th>#</th>
-		                                <th>Nhà Cung Cấp</th>
+		                                <th>Tên Món Ăn</th>
 		                                <th>Nhân Viên Nhập</th>
 		                                <th>Số Lượng Cũ</th>
 		                                <th>Số Lượng Nhập</th>
@@ -48,7 +48,7 @@
 		                        	<?php foreach ($history as $key => $value): ?>
 		                        		<tr>
 			                                <th scope="row"><?php echo $key + 1; ?></th>
-			                                <td><b><?php echo $value['TenNhaCungCap']; ?></b></td>
+			                                <td><b><?php echo $value['TenMon']; ?></b></td>
 			                                <td><b><?php echo $value['TenNhanVien']; ?></b></td>
 			                                <td>
 			                                	<span class="badge badge-primary">
@@ -75,10 +75,10 @@
 		                        </tbody>
 		                    </table>
 		                    <?php if(count($history) <= 0){ ?>
-		                    	<p style="margin-top: 15px; text-align: center;">Món ăn chưa có lịch sử nhập!</p>
+		                    	<p style="margin-top: 15px; text-align: center;">Nhà cung cấp chưa có lịch sử nhập!</p>
 		                    <?php } ?>
 		                    <br>
-		                    <a href="<?php echo base_url('admin/food/') ?>" class="btn btn-default">Quay Lại</a>
+		                    <a href="<?php echo base_url('admin/supplier/') ?>" class="btn btn-default">Quay Lại</a>
 		                </div>
 		            </div>
 		        </div>

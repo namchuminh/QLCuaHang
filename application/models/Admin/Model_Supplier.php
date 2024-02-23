@@ -76,6 +76,11 @@ class Model_Supplier extends CI_Model {
 		return $result;
 	}
 
+	public function getHistory($manhacungcap){
+		$sql = "SELECT lichsunhap.*, nhanvien.TenNhanVien, nhacungcap.TenNhaCungCap, monan.TenMon FROM monan, lichsunhap, nhanvien, nhacungcap WHERE lichsunhap.MaNhaCungCap = nhacungcap.MaNhaCungCap AND lichsunhap.MaNhanVien = nhanvien.MaNhanVien AND lichsunhap.MaMonAn = monan.MaMonAn AND lichsunhap.MaNhaCungCap = ?  ORDER BY lichsunhap.MaLichSuNhap DESC LIMIT 10";
+		$result = $this->db->query($sql, array($manhacungcap));
+		return $result->result_array();
+	}
 
 }
 

@@ -47,8 +47,8 @@ class Model_Food extends CI_Model {
 	}
 
 	public function getHistoryById($mamonan){
-		$sql = "SELECT lichsunhap.*, nhanvien.TenNhanVien, nhacungcap.TenNhaCungCap FROM monan, lichsunhap, nhanvien, nhacungcap WHERE lichsunhap.MaNhaCungCap = nhacungcap.MaNhaCungCap AND lichsunhap.MaMonAn = monan.MaMonAn AND lichsunhap.MaNhanVien = nhanvien.MaNhanVien ORDER BY lichsunhap.MaLichSuNhap DESC LIMIT 10";
-		$result = $this->db->query($sql);
+		$sql = "SELECT lichsunhap.*, nhanvien.TenNhanVien, nhacungcap.TenNhaCungCap FROM monan, lichsunhap, nhanvien, nhacungcap WHERE lichsunhap.MaNhaCungCap = nhacungcap.MaNhaCungCap AND lichsunhap.MaNhanVien = nhanvien.MaNhanVien AND lichsunhap.MaMonAn = monan.MaMonAn AND lichsunhap.MaMonAn = ? ORDER BY lichsunhap.MaLichSuNhap DESC LIMIT 10";
+		$result = $this->db->query($sql, array($mamonan));
 		return $result->result_array();
 	}
 }
