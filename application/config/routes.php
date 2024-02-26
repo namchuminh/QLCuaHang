@@ -41,3 +41,11 @@ $route['admin/order'] = 'Admin/Order';
 
 
 $route['admin/setting'] = 'Admin/Setting';
+
+
+$route['admin/staff'] = 'Admin/Staff';
+$route['admin/staff/add'] = 'Admin/Staff/Add';
+$route['admin/staff/(:any)/update'] = 'Admin/Staff/Update/$1';
+$route['admin/staff/(:any)/delete'] = 'Admin/Staff/Delete/$1';
+
+

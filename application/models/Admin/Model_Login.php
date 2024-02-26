@@ -10,7 +10,7 @@ class Model_Login extends CI_Model {
 	}
 
 	public function checkAccountAdmin($taikhoan, $matkhau){
-		$sql = "SELECT * FROM nhanvien WHERE TaiKhoan = ? AND MatKhau = ?";
+		$sql = "SELECT * FROM nhanvien WHERE TaiKhoan = ? AND MatKhau = ? AND TrangThai = 1";
 		$result = $this->db->query($sql, array($taikhoan, $matkhau));
 		return $result->num_rows();
 	}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2024 at 06:05 PM
+-- Generation Time: Feb 26, 2024 at 09:40 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -208,16 +208,19 @@ CREATE TABLE `nhanvien` (
   `MatKhau` varchar(255) NOT NULL,
   `SoDienThoai` varchar(255) NOT NULL,
   `QueQuan` text NOT NULL,
-  `PhanQuyen` int(11) NOT NULL DEFAULT 0
+  `PhanQuyen` int(11) NOT NULL DEFAULT 0,
+  `TrangThai` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `nhanvien`
 --
 
-INSERT INTO `nhanvien` (`MaNhanVien`, `TenNhanVien`, `HinhAnh`, `TaiKhoan`, `MatKhau`, `SoDienThoai`, `QueQuan`, `PhanQuyen`) VALUES
-(1, 'Nguyễn Văn An', 'https://thespiritofsaigon.net/wp-content/uploads/2022/10/avatar-vo-danh-1.jpg', 'admin', '21232f297a57a5a743894a0e4a801fc3', '0999888999', '', 1),
-(2, 'Nguyễn Văn Bình', 'https://imagescdn.pystravel.vn/uploads/posts/avatar/1581920545.jpg', 'admin123', '21232f297a57a5a743894a0e4a801fc3', '0999888999', 'Hà Nội', 0);
+INSERT INTO `nhanvien` (`MaNhanVien`, `TenNhanVien`, `HinhAnh`, `TaiKhoan`, `MatKhau`, `SoDienThoai`, `QueQuan`, `PhanQuyen`, `TrangThai`) VALUES
+(1, 'Nguyễn Văn An', 'http://localhost/QLCuaHang/uploads/15819205451.jpg', 'admin', '21232f297a57a5a743894a0e4a801fc3', '0999888999', 'Hà Nội', 1, 1),
+(2, 'Nguyễn Văn Bình', 'https://imagescdn.pystravel.vn/uploads/posts/avatar/1581920545.jpg', 'admin123', '21232f297a57a5a743894a0e4a801fc3', '0999888999', 'Hà Nội', 0, 1),
+(3, 'Nguyễn Văn An', 'http://localhost/QLCuaHang/uploads/z4617362745335_4456bfd0f397a69bb165e385ba8916cb1.jpg', 'admin234', '206dcce3f82cf8981d316e7900dc8e06', '0379962045', 'Hà Nội', 0, 1),
+(4, 'Nguyễn Văn An', 'http://localhost/QLCuaHang/uploads/z4617362817818_39cacdb57658e537cb0e22dc18e885d82.jpg', 'admin789', '21232f297a57a5a743894a0e4a801fc3', '0379962045', 'Hà Nội', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -336,7 +339,7 @@ ALTER TABLE `nhacungcap`
 -- AUTO_INCREMENT for table `nhanvien`
 --
 ALTER TABLE `nhanvien`
-  MODIFY `MaNhanVien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MaNhanVien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

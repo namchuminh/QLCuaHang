@@ -78,26 +78,32 @@
                     <?php } ?>
 
                     <li class="label">Bán Hàng</li>
-                    <li>
-                        <a href="<?php echo base_url('admin/nguoi-dung/'); ?>"><i class="ti-user"></i>Người Dùng</a>
-                    </li>
-
-                    <li>
-                        <a href="<?php echo base_url('admin/don-hang/'); ?>"><i class="ti-shopping-cart"></i>Đơn Hàng</a>
-                    </li>
-
-                    <li><a class="sidebar-sub-toggle"><i class="ti-receipt"></i>Khuyến Mãi <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-receipt"></i>Hóa Đơn <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="<?php echo base_url('admin/khuyen-mai/'); ?>">Danh Sách</a></li>
                             <li><a href="<?php echo base_url('admin/khuyen-mai/them/'); ?>">Thêm Mới</a></li>
                         </ul>
                     </li>
 
-                    <li class="label">Cấu Hình</li>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-layout-grid4-alt"></i>Bàn Ăn <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="<?php echo base_url('admin/khuyen-mai/'); ?>">Danh Sách</a></li>
+                            <li><a href="<?php echo base_url('admin/khuyen-mai/them/'); ?>">Thêm Mới</a></li>
+                        </ul>
+                    </li>
 
-                    <li><a href="<?php echo base_url('admin/nap-the/'); ?>"><i class="ti-layers-alt"></i> Thẻ Cào Siêu Rẻ</a></li>
-                    <li><a href="<?php echo base_url('admin/ngan-hang/'); ?>"><i class="ti-credit-card"></i> Ngân Hàng (VNPAY)</a></li>
-                    <li><a href="<?php echo base_url('admin/cai-dat/'); ?>"><i class="ti-settings"></i> Cài Đặt</a></li>
+                    <?php if($_SESSION['role'] == 1){ ?>
+                        <li class="label">Cửa Hàng</li>
+
+                        <li><a class="sidebar-sub-toggle"><i class="ti-user"></i>Nhân Viên <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="<?php echo base_url('admin/staff/'); ?>">Danh Sách</a></li>
+                                <li><a href="<?php echo base_url('admin/staff/add/'); ?>">Thêm Mới</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="<?php echo base_url('admin/setting/'); ?>"><i class="ti-settings"></i> Cài Đặt</a></li>
+                    <?php } ?>
 
                     <li class="label">Cá Nhân</li>
                     <li><a href="<?php echo base_url('admin/ca-nhan/'); ?>"><i class="ti-lock"></i> Đổi Thông Tin</a></li>
