@@ -21,12 +21,6 @@ class Model_Login extends CI_Model {
 		return $result->result_array();
 	}
 
-	public function updatePassword($matkhau,$email,$taikhoan){
-		$sql = "UPDATE nhanvien SET MatKhau = ? WHERE Email = ? AND TaiKhoan = ? AND PhanQuyen = 1";
-		$result = $this->db->query($sql, array($matkhau,$email,$taikhoan));
-		return $result;
-	}
-
 }
 
 /* End of file DangNhap.php */

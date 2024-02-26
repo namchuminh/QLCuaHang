@@ -45,6 +45,20 @@ class Model_Staff extends CI_Model {
 		$result = $this->db->query($sql, array($manhanvien));
 		return $result;
 	}
+
+	public function updatePassword($matkhau,$manhanvien){
+		$sql = "UPDATE nhanvien SET MatKhau = ? WHERE MaNhanVien = ?";
+		$result = $this->db->query($sql, array($matkhau,$manhanvien));
+		return $result;
+	}
+
+	public function checkPassword($matkhau,$manhanvien){
+		$sql = "SELECT * FROM nhanvien WHERE MatKhau = ? AND MaNhanVien = ?";
+		$result = $this->db->query($sql, array($matkhau,$manhanvien));
+		return $result->result_array();
+	}
+
+
 }
 
 /* End of file Model_Staff.php */

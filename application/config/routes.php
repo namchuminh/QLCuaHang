@@ -49,3 +49,6 @@ $route['admin/staff/(:any)/update'] = 'Admin/Staff/Update/$1';
 $route['admin/staff/(:any)/delete'] = 'Admin/Staff/Delete/$1';
 
 
+
+$route['admin/password'] = 'Admin/Password';
+

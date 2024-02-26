@@ -106,7 +106,7 @@
                     <?php } ?>
 
                     <li class="label">Cá Nhân</li>
-                    <li><a href="<?php echo base_url('admin/ca-nhan/'); ?>"><i class="ti-lock"></i> Đổi Thông Tin</a></li>
+                    <li><a href="<?php echo base_url('admin/password/'); ?>"><i class="ti-lock"></i> Đổi Mật Khẩu</a></li>
                     <li><a href="<?php echo base_url('admin/logout/'); ?>"><i class="ti-power-off"></i> Đăng Xuất</a></li>
                 </ul>
             </div>
