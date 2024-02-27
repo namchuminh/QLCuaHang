@@ -35,12 +35,13 @@ $route['admin/category/(:any)/delete'] = 'Admin/Category/Delete/$1';
 
 
 $route['admin/table'] = 'Admin/Table';
+$route['admin/table/add'] = 'Admin/Table/Add';
+$route['admin/table/(:any)/update'] = 'Admin/Table/Update/$1';
+$route['admin/table/(:any)/delete'] = 'Admin/Table/Delete/$1';
+$route['admin/table/(:any)/status'] = 'Admin/Table/Status/$1';
 
 
 $route['admin/order'] = 'Admin/Order';
-
-
-$route['admin/setting'] = 'Admin/Setting';
 
 
 $route['admin/staff'] = 'Admin/Staff';
@@ -49,6 +50,6 @@ $route['admin/staff/(:any)/update'] = 'Admin/Staff/Update/$1';
 $route['admin/staff/(:any)/delete'] = 'Admin/Staff/Delete/$1';
 
 
-
 $route['admin/password'] = 'Admin/Password';
 
+$route['admin/setting'] = 'Admin/Setting';

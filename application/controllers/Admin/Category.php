@@ -67,7 +67,7 @@ class Category extends CI_Controller {
 			return redirect(base_url('admin/category/'));
 		}
 
-		$data['title'] = "Thêm mới loại món ăn";
+		$data['title'] = "Cập nhật loại món ăn";
 		$data['detail'] = $this->Model_Category->getById($maloaimonan);
 		if ($this->input->server('REQUEST_METHOD') === 'POST') {
 			if($this->session->userdata('role') != 1){
@@ -96,7 +96,7 @@ class Category extends CI_Controller {
 
 			$this->Model_Category->update($hinhanh, $mota, $tenloaimonan, $maloaimonan);
 
-			$data['success'] = "Cập nhật loại món ăn mới thành công!";
+			$data['success'] = "Cập nhật loại món ăn thành công!";
 			$data['detail'] = $this->Model_Category->getById($maloaimonan);
 			return $this->load->view('Admin/View_CategoryUpdate', $data);
 		}
