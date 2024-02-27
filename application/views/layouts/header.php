@@ -130,7 +130,7 @@
                     <div class="drop-down dropdown-profile">
                         <div class="dropdown-content-body">
                             <ul>
-                                <li><a href="<?php echo base_url('admin/ca-nhan/'); ?>"><i class="ti-user"></i> <span>Cá Nhân</span></a></li>
+                                <li><a href="<?php echo base_url('admin/password/'); ?>"><i class="ti-lock"></i> <span>Đổi Mật Khẩu</span></a></li>
                                 <li><a href="<?php echo base_url('admin/logout/'); ?>"><i class="ti-power-off"></i> <span>Đăng Xuất</span></a></li>
                             </ul>
                         </div>
