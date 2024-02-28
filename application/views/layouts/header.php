@@ -78,12 +78,10 @@
                     <?php } ?>
 
                     <li class="label">Bán Hàng</li>
-                    <li><a class="sidebar-sub-toggle"><i class="ti-receipt"></i>Hóa Đơn <span class="sidebar-collapse-icon ti-angle-down"></span></a>
-                        <ul>
-                            <li><a href="<?php echo base_url('admin/khuyen-mai/'); ?>">Danh Sách</a></li>
-                            <li><a href="<?php echo base_url('admin/khuyen-mai/them/'); ?>">Thêm Mới</a></li>
-                        </ul>
+                    <li>
+                        <a href="<?php echo base_url('admin/order/'); ?>"><i class="ti-receipt"></i>Hóa Đơn </a>
                     </li>
+                    
 
                     <li><a class="sidebar-sub-toggle"><i class="ti-layout-grid4-alt"></i>Bàn Ăn <span class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>

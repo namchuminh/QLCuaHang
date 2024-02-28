@@ -42,6 +42,8 @@ $route['admin/table/(:any)/status'] = 'Admin/Table/Status/$1';
 
 
 $route['admin/order'] = 'Admin/Order';
+$route['admin/order/(:any)/detail'] = 'Admin/Order/Detail/$1';
+$route['admin/order/(:any)/pay'] = 'Admin/Order/Pay/$1';
 
 
 $route['admin/staff'] = 'Admin/Staff';
