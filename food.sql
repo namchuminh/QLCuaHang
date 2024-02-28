@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2024 at 09:40 AM
+-- Generation Time: Feb 28, 2024 at 01:21 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -29,10 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `banan` (
   `MaBanAn` int(11) NOT NULL,
+  `TenBan` varchar(255) NOT NULL,
   `SucChua` int(11) NOT NULL,
   `ViTri` text NOT NULL,
-  `TrangThai` int(11) NOT NULL
+  `DangSuDung` int(11) NOT NULL DEFAULT 0,
+  `TrangThai` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `banan`
+--
+
+INSERT INTO `banan` (`MaBanAn`, `TenBan`, `SucChua`, `ViTri`, `DangSuDung`, `TrangThai`) VALUES
+(1, 'Bàn số 01', 6, 'Tầng 1', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -41,12 +50,20 @@ CREATE TABLE `banan` (
 --
 
 CREATE TABLE `cauhinh` (
+  `TenQuan` varchar(500) NOT NULL,
   `SoDienThoai` varchar(11) NOT NULL,
   `MaQR` text NOT NULL,
-  `GioMoCua` datetime NOT NULL,
-  `GioDongCua` datetime NOT NULL,
+  `GioMoCua` time NOT NULL,
+  `GioDongCua` time NOT NULL,
   `DiaChiQuan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `cauhinh`
+--
+
+INSERT INTO `cauhinh` (`TenQuan`, `SoDienThoai`, `MaQR`, `GioMoCua`, `GioDongCua`, `DiaChiQuan`) VALUES
+('Quán Ăn ABC ', '0999888999', 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http://localhost/QLCuaHang/', '08:00:00', '20:00:00', 'ABCDE');
 
 -- --------------------------------------------------------
 
@@ -61,6 +78,14 @@ CREATE TABLE `chitiethoadon` (
   `SoLuong` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `chitiethoadon`
+--
+
+INSERT INTO `chitiethoadon` (`MaChiTietHoaDon`, `MaHoaDon`, `MaMonAn`, `SoLuong`) VALUES
+(1, 1, 4, 2),
+(2, 1, 5, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -70,11 +95,17 @@ CREATE TABLE `chitiethoadon` (
 CREATE TABLE `hoadon` (
   `MaHoaDon` int(11) NOT NULL,
   `MaBanAn` int(11) NOT NULL,
-  `MaNhanVien` int(11) NOT NULL,
   `TongTien` int(11) NOT NULL,
   `ThanhToan` int(11) NOT NULL,
-  `ThoiGian` date NOT NULL DEFAULT current_timestamp()
+  `ThoiGian` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `hoadon`
+--
+
+INSERT INTO `hoadon` (`MaHoaDon`, `MaBanAn`, `TongTien`, `ThanhToan`, `ThoiGian`) VALUES
+(1, 1, 150000, 1, '2024-02-28 20:13:09');
 
 -- --------------------------------------------------------
 
@@ -220,7 +251,7 @@ INSERT INTO `nhanvien` (`MaNhanVien`, `TenNhanVien`, `HinhAnh`, `TaiKhoan`, `Mat
 (1, 'Nguyễn Văn An', 'http://localhost/QLCuaHang/uploads/15819205451.jpg', 'admin', '21232f297a57a5a743894a0e4a801fc3', '0999888999', 'Hà Nội', 1, 1),
 (2, 'Nguyễn Văn Bình', 'https://imagescdn.pystravel.vn/uploads/posts/avatar/1581920545.jpg', 'admin123', '21232f297a57a5a743894a0e4a801fc3', '0999888999', 'Hà Nội', 0, 1),
 (3, 'Nguyễn Văn An', 'http://localhost/QLCuaHang/uploads/z4617362745335_4456bfd0f397a69bb165e385ba8916cb1.jpg', 'admin234', '206dcce3f82cf8981d316e7900dc8e06', '0379962045', 'Hà Nội', 0, 1),
-(4, 'Nguyễn Văn An', 'http://localhost/QLCuaHang/uploads/z4617362817818_39cacdb57658e537cb0e22dc18e885d82.jpg', 'admin789', '21232f297a57a5a743894a0e4a801fc3', '0379962045', 'Hà Nội', 1, 1);
+(4, 'Nguyễn Văn An', 'http://localhost/QLCuaHang/uploads/z4617362817818_39cacdb57658e537cb0e22dc18e885d82.jpg', 'admin789', '206dcce3f82cf8981d316e7900dc8e06', '0379962045', 'Hà Nội', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -245,8 +276,7 @@ ALTER TABLE `chitiethoadon`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`MaHoaDon`),
-  ADD KEY `MaBanAn` (`MaBanAn`,`MaNhanVien`),
-  ADD KEY `MaNhanVien` (`MaNhanVien`);
+  ADD KEY `MaBanAn` (`MaBanAn`);
 
 --
 -- Indexes for table `lichsunhap`
@@ -297,19 +327,19 @@ ALTER TABLE `nhanvien`
 -- AUTO_INCREMENT for table `banan`
 --
 ALTER TABLE `banan`
-  MODIFY `MaBanAn` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MaBanAn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  MODIFY `MaChiTietHoaDon` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MaChiTietHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MaHoaDon` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MaHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `lichsunhap`
@@ -356,8 +386,7 @@ ALTER TABLE `chitiethoadon`
 -- Constraints for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`MaBanAn`) REFERENCES `banan` (`MaBanAn`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`MaNhanVien`) REFERENCES `nhanvien` (`MaNhanVien`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`MaBanAn`) REFERENCES `banan` (`MaBanAn`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `lichsunhap`
