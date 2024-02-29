@@ -48,13 +48,17 @@
                             <input type="text" class="form-control" placeholder="Số Điện Thoại *" name="sodienthoai" value="<?php echo $detail[0]['SoDienThoai'] ?>">
                         </div>
                         <div class="form-group">
-                            <label>Mã QR</label>
+                            <label>Mã QR Menu</label>
                             <br>
                             <img class="qr_img" src="<?php echo $detail[0]['MaQR'] ?>">
                             <input type="hidden" class="form-control maqr" name="maqr">
                             <br>
                             <a class="btn btn-warning print">In Mã QR</a>
                             <a class="btn btn-danger get">Lấy Mã Mới</a>
+                        </div>
+                        <div class="form-group">
+                            <label>Mã QR Thanh Toán</label>
+                            <input type="file" class="form-control" name="maqrthanhtoan">
                         </div>
                         <div class="form-group">
                             <label>Giờ Mở Cửa</label>
@@ -120,7 +124,4 @@
             $('.qr_img').attr('src', qr_code);
         })
     });
-
-
-
 </script>

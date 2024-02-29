@@ -23,6 +23,7 @@ class Setting extends CI_Controller {
 			$giomocua = $this->input->post('giomocua');
 			$giodongcua = $this->input->post('giodongcua');
 			$diachiquan = $this->input->post('diachiquan');
+			$maqrthanhtoan = $this->Model_Setting->getAll()[0]['MaQRThanhToan'];
 
 			if(empty($tenquan) || empty($sodienthoai) || empty($giomocua) ||empty($giodongcua) || empty($diachiquan)){
 				$data['error'] = "Vui lòng nhập đủ thông tin cài đặt!";
@@ -40,7 +41,18 @@ class Setting extends CI_Controller {
 				$maqr = $this->input->post('maqr');
 			}
 
-			$this->Model_Setting->update($tenquan,$sodienthoai,$maqr,$giomocua,$giodongcua,$diachiquan);
+			$config['upload_path'] = './uploads/';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+
+			$this->load->library('upload', $config);
+
+			if ($this->upload->do_upload('maqrthanhtoan')){
+				$img = $this->upload->data();
+				$maqrthanhtoan = base_url('uploads')."/".$img['file_name'];
+			}
+
+
+			$this->Model_Setting->update($tenquan,$sodienthoai,$maqr,$giomocua,$giodongcua,$diachiquan,$maqrthanhtoan);
 			
 			$data['success'] = "Lưu cài đặt thành công!";
 			$data['detail'] = $this->Model_Setting->getAll();

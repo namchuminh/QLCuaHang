@@ -38,7 +38,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th style="width: 150px;">Hình Ảnh</th>
+                                        <th style="width: 150px;" class="print_none">Hình Ảnh</th>
                                         <th>Tên Món Ăn</th>
                                         <th>Số Lượng</th>
                                         <th style="text-align: left;">Đơn Giá</th>
@@ -48,7 +48,7 @@
                                     <?php foreach ($detail as $key => $value): ?>
                                         <tr>
                                             <th scope="row"><?php echo $key + 1; ?></th>
-                                            <td>
+                                            <td class="print_none">
                                                 <img src="<?php echo $value['HinhAnh']; ?>" width="100px" height="100px">
                                             </td>
                                             <td><b><?php echo $value['TenMon']; ?></b></td>
@@ -77,7 +77,7 @@
 <style type="text/css">
     @media print {
         .sidebar {
-            display: display: none !important;
+            display: none !important;
             width: 0px;
         }
 
@@ -97,8 +97,16 @@
             text-align: center;
             padding: 0;
         }
-    }
 
+        .card{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .print_none{
+            display: none !important;
+        }
+    }
 </style>
 
 <script>

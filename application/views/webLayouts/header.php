@@ -43,15 +43,23 @@
                     </li>
                     <li class="label">Liên Hệ</li>
 
-                    <li><a href="<?php echo base_url('admin/food/'); ?>"><i class="ti-view-grid"></i>Món Ăn </a>
+                    <li><a><i class="ti-location-pin"></i>Địa Chỉ: <?php echo $setting[0]['DiaChiQuan']; ?></span></a>
                     </li>
 
-                    <li><a href="<?php echo base_url('admin/category/'); ?>"><i class="ti-menu"></i>Loại Món Ăn </span></a>
+                    <li><a><i class="ti-headphone-alt"></i>Liên Hệ: <?php echo $setting[0]['SoDienThoai']; ?></a>
                     </li>
 
-                    <li><a href="<?php echo base_url('admin/supplier/'); ?>"><i class="ti-truck"></i>Nhà Cung Cấp </a>
+                
+                    <li><a><i class="ti-timer"></i>Mở Cửa: <?php echo explode(":",$setting[0]['GioMoCua'])[0].":".explode(":",$setting[0]['GioMoCua'])[1]; ?></a>
                     </li>
 
+                    <li><a><i class="ti-timer"></i>Đóng Cửa: <?php echo explode(":",$setting[0]['GioDongCua'])[0].":".explode(":",$setting[0]['GioDongCua'])[1]; ?></a>
+                    </li>
+
+                    <li class="label">QR Thanh Toán</li>
+                    <li>
+                        <img src="<?php echo $setting[0]['MaQRThanhToan'] ?>" style="width: 100%; height: 100%; padding: 10px; padding-top: 0px;">
+                    </li>
                 </ul>
             </div>
         </div>

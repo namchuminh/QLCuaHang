@@ -16,12 +16,6 @@ class Model_Setting extends CI_Model {
 		$result = $this->db->query($sql);
 		return $result->result_array();
 	}
-
-	public function update($tenquan,$sodienthoai,$maqr,$giomocua,$giodongcua,$diachiquan,$maqrthanhtoan){
-		$sql = "UPDATE cauhinh SET TenQuan = ?, SoDienThoai = ?, MaQR = ?, GioMoCua = ?, GioDongCua = ?, DiaChiQuan = ?, MaQRThanhToan = ?";
-		$result = $this->db->query($sql, array($tenquan,$sodienthoai,$maqr,$giomocua,$giodongcua,$diachiquan,$maqrthanhtoan));
-		return $result;
-	}
 }
 
 /* End of file Model_Setting.php */

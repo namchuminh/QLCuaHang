@@ -7,6 +7,7 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Web/Model_Category');
 		$this->load->model('Web/Model_Food');
+		$this->load->model('Web/Model_Setting');
 	}
 
 	public function index()
@@ -14,6 +15,7 @@ class Home extends CI_Controller {
 		$data['title'] = "Food Menu - Đặt đồ ăn";
 		$data['category'] = $this->Model_Category->getAll();
 		$data['menu'] = $this->session->userdata('menu');
+		$data['setting'] = $this->Model_Setting->getAll();
 		return $this->load->view('Web/View_Home', $data);
 	}
 
