@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -55,3 +55,13 @@ $route['admin/staff/(:any)/delete'] = 'Admin/Staff/Delete/$1';
 $route['admin/password'] = 'Admin/Password';
 
 $route['admin/setting'] = 'Admin/Setting';
+
+$route['add-menu'] = 'Home/addMenu';
+$route['delete-menu/(:any)'] = 'Home/deleteMenu/$1';
+$route['table'] = 'Web/Table';
+$route['table/(:any)/chose'] = 'Web/Table/Chose/$1';
+$route['order/(:any)/table'] = 'Web/Order/addOrder/$1';
+
+
+
+

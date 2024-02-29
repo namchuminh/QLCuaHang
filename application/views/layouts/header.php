@@ -114,7 +114,7 @@
 
     <div class="header">
         <div class="pull-left">
-            <div class="logo"><a href="<?php echo base_url('admin/'); ?>"><span>Shop Clone - Admin</span></a></div>
+            <div class="logo"><a href="<?php echo base_url('admin/'); ?>"><span>Admin Food</span></a></div>
             <div class="hamburger sidebar-toggle">
                 <span class="line"></span>
                 <span class="line"></span>
