@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2024 at 01:21 PM
+-- Generation Time: Mar 01, 2024 at 10:02 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -55,15 +55,16 @@ CREATE TABLE `cauhinh` (
   `MaQR` text NOT NULL,
   `GioMoCua` time NOT NULL,
   `GioDongCua` time NOT NULL,
-  `DiaChiQuan` text NOT NULL
+  `DiaChiQuan` text NOT NULL,
+  `MaQRThanhToan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `cauhinh`
 --
 
-INSERT INTO `cauhinh` (`TenQuan`, `SoDienThoai`, `MaQR`, `GioMoCua`, `GioDongCua`, `DiaChiQuan`) VALUES
-('Quán Ăn ABC ', '0999888999', 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http://localhost/QLCuaHang/', '08:00:00', '20:00:00', 'ABCDE');
+INSERT INTO `cauhinh` (`TenQuan`, `SoDienThoai`, `MaQR`, `GioMoCua`, `GioDongCua`, `DiaChiQuan`, `MaQRThanhToan`) VALUES
+('Quán Ăn ABC ', '0999888999', 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http://localhost/QLCuaHang/', '08:00:00', '20:00:00', 'ABCDE', 'http://localhost/QLCuaHang/uploads/z5204981674939_cb87935e11dde5ee3dc2641f5eb6d6041.jpg');
 
 -- --------------------------------------------------------
 
@@ -83,8 +84,10 @@ CREATE TABLE `chitiethoadon` (
 --
 
 INSERT INTO `chitiethoadon` (`MaChiTietHoaDon`, `MaHoaDon`, `MaMonAn`, `SoLuong`) VALUES
-(1, 1, 4, 2),
-(2, 1, 5, 1);
+(27, 27, 4, 5),
+(28, 27, 3, 2),
+(29, 28, 4, 2),
+(30, 28, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -105,7 +108,8 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MaHoaDon`, `MaBanAn`, `TongTien`, `ThanhToan`, `ThoiGian`) VALUES
-(1, 1, 150000, 1, '2024-02-28 20:13:09');
+(27, 1, 105000, 0, '2024-02-29 15:27:34'),
+(28, 1, 75000, 1, '2024-03-01 15:28:12');
 
 -- --------------------------------------------------------
 
@@ -129,8 +133,9 @@ CREATE TABLE `lichsunhap` (
 --
 
 INSERT INTO `lichsunhap` (`MaLichSuNhap`, `MaNhanVien`, `MaNhaCungCap`, `MaMonAn`, `SoLuongCu`, `SoLuongMoi`, `TongTien`, `ThoiGian`) VALUES
-(3, 1, 13, 3, 20, 30, 15000, '2024-02-23 22:48:39'),
-(4, 1, 13, 4, 0, 15, 150000, '2024-02-23 23:03:47');
+(3, 1, 13, 3, 20, 30, 15000, '2024-03-01 22:48:39'),
+(4, 1, 13, 4, 0, 15, 150000, '2024-02-29 23:03:47'),
+(5, 1, 12, 5, 0, 10, 80000, '2024-02-28 19:12:27');
 
 -- --------------------------------------------------------
 
@@ -151,7 +156,7 @@ CREATE TABLE `loaimonan` (
 --
 
 INSERT INTO `loaimonan` (`MaLoaiMonAn`, `HinhAnh`, `MoTa`, `TenLoaiMonAn`, `TrangThai`) VALUES
-(1, 'https://cdn.tgdd.vn/Files/2020/12/16/1314124/thuc-an-nhanh-la-gi-an-thuc-an-nhanh-co-tot-hay-khong-202012161146206471.jpg', 'Món ăn uống rượi', 'Đồ Ăn Nhanh', 0),
+(1, 'https://cdn.tgdd.vn/Files/2020/12/16/1314124/thuc-an-nhanh-la-gi-an-thuc-an-nhanh-co-tot-hay-khong-202012161146206471.jpg', 'Món ăn uống rượi', 'Đồ Ăn Nhanh', 1),
 (2, 'http://localhost/QLCuaHang/uploads/z4617362745335_4456bfd0f397a69bb165e385ba8916cb.jpg', 'Món ăn uống rượi', 'Nước Uống', 1),
 (3, 'http://localhost/QLCuaHang/uploads/z4617362817818_39cacdb57658e537cb0e22dc18e885d81.jpg', 'Món ăn uống rượi', 'Món Nhậu', 1);
 
@@ -177,9 +182,9 @@ CREATE TABLE `monan` (
 --
 
 INSERT INTO `monan` (`MaMonAn`, `TenMon`, `MoTa`, `GiaBan`, `SoLuong`, `MaLoaiMonAn`, `HinhAnh`, `TrangThai`) VALUES
-(3, 'Trà Sữa Trân Trâu', '<p>abcde</p>', 15000, 50, 2, 'http://localhost/QLCuaHang/uploads/15819205452.jpg', 1),
-(4, 'Hướng Dương', '<p>abcde</p>', 15000, 15, 2, 'http://localhost/QLCuaHang/uploads/z4617362741623_98c0302df70bfe02dd581fa8a0e35aa6.jpg', 1),
-(5, 'Sting Vàng', '<p>nước uống</p>', 10000, 0, 1, 'http://localhost/QLCuaHang/uploads/z4617362741623_98c0302df70bfe02dd581fa8a0e35aa61.jpg', 1);
+(3, 'Trà Sữa Trân Trâu', '<p>abcde</p>', 15000, 38, 2, 'http://localhost/QLCuaHang/uploads/15819205452.jpg', 1),
+(4, 'Hướng Dương', '<p>abcde</p>', 15000, 2, 2, 'http://localhost/QLCuaHang/uploads/z4617362741623_98c0302df70bfe02dd581fa8a0e35aa6.jpg', 1),
+(5, 'Sting Vàng', '<p>nước uống</p>', 10000, 9, 1, 'http://localhost/QLCuaHang/uploads/z4617362741623_98c0302df70bfe02dd581fa8a0e35aa61.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -333,19 +338,19 @@ ALTER TABLE `banan`
 -- AUTO_INCREMENT for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  MODIFY `MaChiTietHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MaChiTietHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `MaHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MaHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `lichsunhap`
 --
 ALTER TABLE `lichsunhap`
-  MODIFY `MaLichSuNhap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `MaLichSuNhap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `loaimonan`

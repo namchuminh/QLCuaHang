@@ -12,6 +12,7 @@ class Table extends CI_Controller {
 
 		$this->load->model('Web/Model_Table');
 		$this->load->model('Web/Model_Food');
+		$this->load->model('Web/Model_Setting');
 	}
 
 	public function index()
@@ -19,6 +20,7 @@ class Table extends CI_Controller {
 		$data['title'] = "Chọn bàn ăn";
 		$data['menu'] = $this->session->userdata('menu');
 		$data['list'] = $this->Model_Table->getAll();
+		$data['setting'] = $this->Model_Setting->getAll();
 		$this->load->view('Web/View_Table', $data);
 	}
 

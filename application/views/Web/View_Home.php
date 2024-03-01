@@ -54,7 +54,7 @@
 						                                	</span>
 						                                </td>
 						                                <td style="width: 100px;">
-						                                	<input class="form-control" type="number" name="soluong" placeholder="Số lượng" min="1" max="<?php echo $value['SoLuong']; ?>">
+						                                	<input class="form-control" type="number" name="soluong" placeholder="Số lượng" min="1" max="<?php echo $value['SoLuong']; ?>" required>
 						                           			<input class="form-control" type="hidden" name="mamonan" value="<?php echo $value['MaMonAn']; ?>">
 						                                	<br>
 						                                	<button type="submit" class="btn btn-primary"><i class="ti-shopping-cart"></i> Thêm Menu</button>

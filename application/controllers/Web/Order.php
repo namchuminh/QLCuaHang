@@ -15,6 +15,7 @@ class Order extends CI_Controller {
 		$this->load->model('Web/Model_Table');
 		$this->load->model('Web/Model_Order');
 		$this->load->model('Web/Model_Food');
+		$this->load->model('Web/Model_Setting');
 	}
 
 
@@ -54,6 +55,7 @@ class Order extends CI_Controller {
 		$data['detail'] = $this->Model_Order->getDetailById($mahoadon);
 		$data['order'] = $this->Model_Order->getById($mahoadon);
 		$data['menu'] = [];
+		$data['setting'] = $this->Model_Setting->getAll();
 		return $this->load->view('Web/View_Order', $data);
 
 	}

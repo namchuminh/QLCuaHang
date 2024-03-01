@@ -82,13 +82,18 @@
                         <a href="<?php echo base_url('admin/order/'); ?>"><i class="ti-receipt"></i>Hóa Đơn </a>
                     </li>
                     
-
-                    <li><a class="sidebar-sub-toggle"><i class="ti-layout-grid4-alt"></i>Bàn Ăn <span class="sidebar-collapse-icon ti-angle-down"></span></a>
-                        <ul>
-                            <li><a href="<?php echo base_url('admin/table/'); ?>">Danh Sách</a></li>
-                            <li><a href="<?php echo base_url('admin/table/add/'); ?>">Thêm Mới</a></li>
-                        </ul>
-                    </li>
+                    <?php if($_SESSION['role'] == 1){ ?>
+                        <li><a class="sidebar-sub-toggle"><i class="ti-layout-grid4-alt"></i>Bàn Ăn <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                            <ul>
+                                <li><a href="<?php echo base_url('admin/table/'); ?>">Danh Sách</a></li>
+                                <li><a href="<?php echo base_url('admin/table/add/'); ?>">Thêm Mới</a></li>
+                            </ul>
+                        </li>
+                    <?php }else{ ?>
+                        <li>
+                            <a href="<?php echo base_url('admin/table/'); ?>"><i class="ti-layout-grid4-alt"></i>Bàn Ăn </a>
+                        </li>
+                    <?php } ?>
 
                     <?php if($_SESSION['role'] == 1){ ?>
                         <li class="label">Cửa Hàng</li>

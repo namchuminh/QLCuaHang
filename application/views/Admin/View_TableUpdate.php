@@ -67,7 +67,9 @@
                         <br>
                         <div>
                         	<a class="btn btn-default" href="<?php echo base_url('admin/table/'); ?>">Quay Lại</a>
-                        	<button type="submit" class="btn btn-primary">Cập Nhật Bàn Ăn</button>
+                            <?php if($_SESSION['role'] == 1){ ?>
+                        	   <button type="submit" class="btn btn-primary">Cập Nhật Bàn Ăn</button>
+                            <?php } ?>
                         </div>
                     </form>
                 </div>
